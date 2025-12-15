@@ -5,8 +5,11 @@ namespace gra_rpg_konsola {
 class Program
 {
 
-        void Main(string[] args)
+        static void Main(string[] args)
         {
+
+
+
             List<Enemy> enemies = new List<Enemy>
             {
                 new Enemy("Zombie", 21.37f, 67.32f),
@@ -17,7 +20,7 @@ class Program
                 new Enemy("Spider", 28.55f, 90.21f),
             };
 
-            var items = new List<Item>
+            List<Item> items = new List<Item>
             {
                 new Item("Zardzewiały Miecz", 0, 5, 0, 0),
                 new Item("Skórzana Zbroja", 3, 0, 10, 5),
@@ -31,7 +34,67 @@ class Program
                 new Item("Pierścień Wytrzymałości", 0, 0, 0, 25)
             };
 
-            Console.Write("Hello world");
+            bool hasFailed = false;
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Witaj w krainie Eldoria, gdzie magia i stal splatają się w nieustannym konflikcie.");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("W lasach skrywają się pradawne potwory, a w zamkach czai się zdrada i intryga.");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Tylko najodważniejsi bohaterowie odważą się wkroczyć na szlak przygody,");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("by zdobyć legendarny artefakt, który może odmienić losy świata.");
+            Console.ResetColor();
+
+            Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+            Console.ReadKey();
+
+            while (!hasFailed)
+            {
+                Console.Clear();
+                Console.WriteLine("=== MENU GRY ===");
+                Console.WriteLine("1. Odpoczywaj");
+                Console.WriteLine("2. Eksploruj");
+                Console.WriteLine("3. Wyświetl status gracza");
+                Console.WriteLine("4. Opuść grę");
+                Console.Write("Wybierz opcję: ");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        playerHealth += 10;
+                        playerStamina += 10;
+                        Console.WriteLine("Odpoczywasz i regenerujesz siły...");
+                        break;
+                    case "2":
+                        playerStamina -= 5;
+                        Console.WriteLine("Eksplorujesz okolicę i napotykasz różne przygody...");
+                        break;
+                    case "3":
+                        Console.WriteLine($"HP: {playerHealth}, STA: {playerStamina}");
+                        break;
+                    case "4":
+                        Console.WriteLine("Opuszczasz grę. Do zobaczenia!");
+                        isRunning = false;
+                        break;
+                    default:
+                        Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
+                        break;
+                }
+
+                if (isRunning)
+                {
+                    Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                    Console.ReadKey();
+                }
+            }
+        }
+    }
+}
+
+Console.Write("Hello world");
         }
     
 }
