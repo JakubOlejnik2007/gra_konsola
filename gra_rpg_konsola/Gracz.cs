@@ -63,17 +63,17 @@ namespace gra_rpg_konsola
             }
         }
 
-        float getStamina()
+        public float getStamina()
         {
             return stamina;
         }
 
-        float getZdrowie()
+        public float getZdrowie()
         {
             return health;
         }
 
-        string getImie()
+        public string getImie()
         {
             return name;
         }
