@@ -103,16 +103,16 @@ class Program
                 switch (choice)
                 {
                     case "1":
-                        GRACZ.Zdrowie += 10;
-                        GRACZ.Stamina += 10;
+                        GRACZ.Heal(10);
+                        GRACZ.Rest();
                         Console.WriteLine("Odpoczywasz i regenerujesz siły...");
                         break;
                     case "2":
-                        GRACZ.Stamina -= 5;
+                        GRACZ.LowerStaimna(5);
                         Console.WriteLine("Eksplorujesz okolicę i napotykasz różne przygody...");
                         break;
                     case "3":
-                        GRACZ.PokazStatus();
+                        GRACZ.ShowStatus();
                         break;
                     case "4":
                         Console.WriteLine("Opuszczasz grę. Do zobaczenia!");
