@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj": {}
+    "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj": {}
   },
   "projects": {
-    "/Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj": {
+    "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
+        "projectUniqueName": "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
         "projectName": "gra_rpg_konsola",
-        "projectPath": "/Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
-        "packagesPath": "/Users/szymonsowinski/.nuget/packages/",
-        "outputPath": "/Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/obj/",
+        "projectPath": "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
+        "packagesPath": "/Users/jakubolejnik/.nuget/packages/",
+        "outputPath": "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/szymonsowinski/.nuget/NuGet/NuGet.Config"
+          "/Users/jakubolejnik/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"

@@ -10,14 +10,11 @@ namespace gra_rpg_konsola
         public float damage;
 
 
-        public Enemy(string name)
+        public Enemy(string name, float health, float damage)
         {
             this.name = name;
-
-            Random rng = new Random();
-
-            this.health = rng.Next(19, 67);
-            this.damage = rng.Next(10, 23);
+            this.health = health;
+            this.damage = damage;
         }
     }
 }
