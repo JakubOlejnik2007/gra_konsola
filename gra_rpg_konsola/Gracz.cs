@@ -73,6 +73,11 @@ namespace gra_rpg_konsola
             return health;
         }
 
+        string getImie()
+        {
+            return name;
+        }
+
         public void Heal(float amount)
         {
             health += amount;
