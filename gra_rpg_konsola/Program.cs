@@ -1,10 +1,19 @@
 using System.Text.RegularExpressions;
 
-namespace gra_rpg_konsola { 
-
-class Program
+namespace gra_rpg_konsola
 {
 
+    class Program
+    {
+        void fight(Gracz player, Enemy enemy)
+        {
+            Console.Clear();
+
+            Console.WriteLine("=== WALKA ===");
+            Console.WriteLine($"{player.getImie()} walczy z {enemy.name}!");
+            Console.WriteLine
+
+        }
 
         void eksploruj(Gracz player, List<Item> items, List<Enemy> enemies)
         {
@@ -12,7 +21,7 @@ class Program
 
             int value = rng.Next(1, 10);
 
-            if(value <= 3)
+            if (value <= 3)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Cicho wszędzie, głucho wszędzie...");
@@ -23,14 +32,16 @@ class Program
                 return;
             }
 
-            if(value <= 6)
+            if (value <= 6)
             {
                 int enemyIdx = rng.Next(0, enemies.Count);
                 Enemy enemy = enemies[enemyIdx];
 
+                player.Attack(enemy);
 
                 return;
-            } else
+            }
+            else
             {
                 int itemIdx = rng.Next(0, items.Count);
                 Item item = items[itemIdx];
@@ -46,7 +57,7 @@ class Program
         static void Main(string[] args)
         {
 
-            Gracz GRACZ = new Gracz(80f, 100f, 15f);
+            Gracz GRACZ = new Gracz("Player", 80f, 100f, 15f);
 
             List<Enemy> enemies = new List<Enemy>
             {
@@ -108,7 +119,7 @@ class Program
                         Console.WriteLine("Odpoczywasz i regenerujesz siły...");
                         break;
                     case "2":
-                        GRACZ.LowerStaimna(5);
+                        GRACZ.LowerStamina(5);
                         Console.WriteLine("Eksplorujesz okolicę i napotykasz różne przygody...");
                         break;
                     case "3":
