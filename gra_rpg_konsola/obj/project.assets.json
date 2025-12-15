@@ -1,0 +1,67 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net7.0": []
+  },
+  "packageFolders": {
+    "/Users/jakubolejnik/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
+      "projectName": "gra_rpg_konsola",
+      "projectPath": "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
+      "packagesPath": "/Users/jakubolejnik/.nuget/packages/",
+      "outputPath": "/Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/jakubolejnik/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
