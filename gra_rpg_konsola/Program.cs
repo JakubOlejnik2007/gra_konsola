@@ -11,55 +11,86 @@ namespace gra_rpg_konsola
 
             Console.WriteLine("=== WALKA ===");
             Console.WriteLine($"{player.getImie()} walczy z {enemy.name}!");
-            Console.WriteLine
+            Console.WriteLine($"Gracz: zdrowie: {player.getZdrowie}, stamina: {player.getStamina}");
+            Console.WriteLine($"Przeciwnik: zdrowie: {enemy.health}");
+            Console.WriteLine($"\n\nAby zaatakować napisz A, aby uciec U [5 staminy]");
 
-        }
+            string choice = Console.ReadLine();
 
-        void eksploruj(Gracz player, List<Item> items, List<Enemy> enemies)
-        {
-            Random rng = new Random();
-
-            int value = rng.Next(1, 10);
-
-            if (value <= 3)
+            switch (choice)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Cicho wszędzie, głucho wszędzie...");
-                Console.ResetColor();
-                Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
-                Console.ReadKey();
-
-                return;
+                case "A":
+                    player.Attack(enemy);
+                    if (enemy.health < 0) break;
+                    player.TakeDamage(enemy.damage);
+                    break;
+                case "U":
+                    if (player.getStamina() > 5)
+                    {
+                        Console.WriteLine("Uciekasz"); player.LowerStamina(5); return;
+                    }
+                    else Console.WriteLine("Brak siły na uczieczkę");
+                    break;
+                default:
+                    Console.WriteLine("Nieprawidłowy wybór"); break;
             }
 
-            if (value <= 6)
+            if (player.IsAlive())
             {
-                int enemyIdx = rng.Next(0, enemies.Count);
-                Enemy enemy = enemies[enemyIdx];
-
-                player.Attack(enemy);
-
-                return;
+                Console.WriteLine("Wyszedles z walki"); return;
             }
-            else
+
+            if (enemy.health < 0)
             {
-                int itemIdx = rng.Next(0, items.Count);
-                Item item = items[itemIdx];
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Znalazłeś przedmiot!");
-                Console.ResetColor();
-                item.GetItemInfo();
-                Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
-                Console.ReadKey();
+                Console.Write("Wygrana"); return;
             }
-        }
 
-        static void Main(string[] args)
-        {
 
-            Gracz GRACZ = new Gracz("Player", 80f, 100f, 15f);
+            void eksploruj(Gracz player, List<Item> items, List<Enemy> enemies)
+            {
+                Random rng = new Random();
 
-            List<Enemy> enemies = new List<Enemy>
+                int value = rng.Next(1, 10);
+
+                if (value <= 3)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Cicho wszędzie, głucho wszędzie...");
+                    Console.ResetColor();
+                    Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                    Console.ReadKey();
+
+                    return;
+                }
+
+                if (value <= 6)
+                {
+                    int enemyIdx = rng.Next(0, enemies.Count);
+                    Enemy enemy = enemies[enemyIdx];
+
+                    this.fight(player, enemy);
+
+                    return;
+                }
+                else
+                {
+                    int itemIdx = rng.Next(0, items.Count);
+                    Item item = items[itemIdx];
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Znalazłeś przedmiot!");
+                    Console.ResetColor();
+                    item.GetItemInfo();
+                    Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                    Console.ReadKey();
+                }
+            }
+
+            static void Main(string[] args)
+            {
+
+                Gracz GRACZ = new Gracz("Player", 80f, 100f, 15f);
+
+                List<Enemy> enemies = new List<Enemy>
             {
                 new Enemy("Zombie", 21.37f, 67.32f),
                 new Enemy("Skeleton", 34.12f, 58.44f),
@@ -69,7 +100,7 @@ namespace gra_rpg_konsola
                 new Enemy("Spider", 28.55f, 90.21f),
             };
 
-            List<Item> items = new List<Item>
+                List<Item> items = new List<Item>
             {
                 new Item("Zardzewiały Miecz", 0, 5, 0, 0),
                 new Item("Skórzana Zbroja", 3, 0, 10, 5),
@@ -83,61 +114,62 @@ namespace gra_rpg_konsola
                 new Item("Pierścień Wytrzymałości", 0, 0, 0, 25)
             };
 
-            bool hasFailed = false;
+                bool hasFailed = false;
 
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Witaj w krainie Eldoria, gdzie magia i stal splatają się w nieustannym konflikcie.");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("W lasach skrywają się pradawne potwory, a w zamkach czai się zdrada i intryga.");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Tylko najodważniejsi bohaterowie odważą się wkroczyć na szlak przygody,");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("by zdobyć legendarny artefakt, który może odmienić losy świata.");
-            Console.ResetColor();
-
-            Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
-            Console.ReadKey();
-
-            while (!hasFailed)
-            {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Witaj w krainie Eldoria, gdzie magia i stal splatają się w nieustannym konflikcie.");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("W lasach skrywają się pradawne potwory, a w zamkach czai się zdrada i intryga.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Tylko najodważniejsi bohaterowie odważą się wkroczyć na szlak przygody,");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("by zdobyć legendarny artefakt, który może odmienić losy świata.");
                 Console.ResetColor();
-                Console.Clear();
-                Console.WriteLine("=== MENU GRY ===");
-                Console.WriteLine("1. Odpoczywaj");
-                Console.WriteLine("2. Eksploruj");
-                Console.WriteLine("3. Wyświetl status gracza");
-                Console.WriteLine("4. Opuść grę");
-                Console.Write("Wybierz opcję: ");
 
-                string choice = Console.ReadLine();
+                Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                Console.ReadKey();
 
-                switch (choice)
+                while (!hasFailed)
                 {
-                    case "1":
-                        GRACZ.Heal(10);
-                        GRACZ.Rest();
-                        Console.WriteLine("Odpoczywasz i regenerujesz siły...");
-                        break;
-                    case "2":
-                        GRACZ.LowerStamina(5);
-                        Console.WriteLine("Eksplorujesz okolicę i napotykasz różne przygody...");
-                        break;
-                    case "3":
-                        GRACZ.ShowStatus();
-                        break;
-                    case "4":
-                        Console.WriteLine("Opuszczasz grę. Do zobaczenia!");
-                        hasFailed = true;
-                        break;
-                    default:
-                        Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
-                        break;
-                }
+                    Console.ResetColor();
+                    Console.Clear();
+                    Console.WriteLine("=== MENU GRY ===");
+                    Console.WriteLine("1. Odpoczywaj");
+                    Console.WriteLine("2. Eksploruj");
+                    Console.WriteLine("3. Wyświetl status gracza");
+                    Console.WriteLine("4. Opuść grę");
+                    Console.Write("Wybierz opcję: ");
 
-                if (!hasFailed)
-                {
-                    Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
-                    Console.ReadKey();
+                    string choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "1":
+                            GRACZ.Heal(10);
+                            GRACZ.Rest();
+                            Console.WriteLine("Odpoczywasz i regenerujesz siły...");
+                            break;
+                        case "2":
+                            GRACZ.LowerStamina(5);
+                            Console.WriteLine("Eksplorujesz okolicę i napotykasz różne przygody...");
+                            break;
+                        case "3":
+                            GRACZ.ShowStatus();
+                            break;
+                        case "4":
+                            Console.WriteLine("Opuszczasz grę. Do zobaczenia!");
+                            hasFailed = true;
+                            break;
+                        default:
+                            Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
+                            break;
+                    }
+
+                    if (!hasFailed)
+                    {
+                        Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                        Console.ReadKey();
+                    }
                 }
             }
         }
