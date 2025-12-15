@@ -54,6 +54,25 @@ namespace gra_rpg_konsola
             Console.WriteLine($"{name} otrzymuje {amount} obrażeń!");
         }
 
+        public void LowerStamina(float stamina)
+        {
+            this.stamina -= stamina;
+            if(this.stamina < 0)
+            {
+                this.stamina = 0;
+            }
+        }
+
+        float getStamina()
+        {
+            return stamina;
+        }
+
+        float getZdrowie()
+        {
+            return health;
+        }
+
         public void Heal(float amount)
         {
             health += amount;
