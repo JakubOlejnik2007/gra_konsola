@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace gra_rpg_konsola
 {
@@ -13,6 +14,7 @@ namespace gra_rpg_konsola
         private float maxStamina;
 
         private float damage;
+        private List<Item> collectedItems = new List<Item>();
 
         public Gracz(string name, float health, float stamina, float damage)
         {
@@ -76,6 +78,23 @@ namespace gra_rpg_konsola
         public string getImie()
         {
             return name;
+        }
+
+        public void CollectItems(Item item)
+        {
+            if (collectedItems.Count >= 3)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Nie możesz unieść więcej niż 3 przedmioty!");
+                Console.ResetColor();
+                return;
+            }
+
+            collectedItems.Add(item);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Dodano do ekwipunku: {item.Name}");
+            Console.ResetColor();
         }
 
         public void Heal(float amount)

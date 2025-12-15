@@ -11,8 +11,6 @@ namespace gra_rpg_konsola
 
             Console.WriteLine("=== WALKA ===");
             Console.WriteLine($"{player.getImie()} walczy z {enemy.name}!");
-            Console.WriteLine
-
         }
 
         void eksploruj(Gracz player, List<Item> items, List<Enemy> enemies)
@@ -45,10 +43,15 @@ namespace gra_rpg_konsola
             {
                 int itemIdx = rng.Next(0, items.Count);
                 Item item = items[itemIdx];
+
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Znalazłeś przedmiot!");
                 Console.ResetColor();
+
                 item.GetItemInfo();
+
+                player.CollectItems(item);
+
                 Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
                 Console.ReadKey();
             }
