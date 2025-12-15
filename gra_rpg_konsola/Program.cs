@@ -5,10 +5,48 @@ namespace gra_rpg_konsola {
 class Program
 {
 
+
+        void eksploruj(Gracz player, List<Item> items, List<Enemy> enemies)
+        {
+            Random rng = new Random();
+
+            int value = rng.Next(1, 10);
+
+            if(value <= 3)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Cicho wszędzie, głucho wszędzie...");
+                Console.ResetColor();
+                Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                Console.ReadKey();
+
+                return;
+            }
+
+            if(value <= 6)
+            {
+                int enemyIdx = rng.Next(0, enemies.Count);
+                Enemy enemy = enemies[enemyIdx];
+
+
+                return;
+            } else
+            {
+                int itemIdx = rng.Next(0, items.Count);
+                Item item = items[itemIdx];
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Znalazłeś przedmiot!");
+                Console.ResetColor();
+                item.GetItemInfo();
+                Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+                Console.ReadKey();
+            }
+        }
+
         static void Main(string[] args)
         {
 
-
+            Gracz GRACZ = new Gracz(80f, 100f, 15f);
 
             List<Enemy> enemies = new List<Enemy>
             {
@@ -51,6 +89,7 @@ class Program
 
             while (!hasFailed)
             {
+                Console.ResetColor();
                 Console.Clear();
                 Console.WriteLine("=== MENU GRY ===");
                 Console.WriteLine("1. Odpoczywaj");
@@ -64,27 +103,27 @@ class Program
                 switch (choice)
                 {
                     case "1":
-                        playerHealth += 10;
-                        playerStamina += 10;
+                        GRACZ.Zdrowie += 10;
+                        GRACZ.Stamina += 10;
                         Console.WriteLine("Odpoczywasz i regenerujesz siły...");
                         break;
                     case "2":
-                        playerStamina -= 5;
+                        GRACZ.Stamina -= 5;
                         Console.WriteLine("Eksplorujesz okolicę i napotykasz różne przygody...");
                         break;
                     case "3":
-                        Console.WriteLine($"HP: {playerHealth}, STA: {playerStamina}");
+                        GRACZ.PokazStatus();
                         break;
                     case "4":
                         Console.WriteLine("Opuszczasz grę. Do zobaczenia!");
-                        isRunning = false;
+                        hasFailed = true;
                         break;
                     default:
                         Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
                         break;
                 }
 
-                if (isRunning)
+                if (!hasFailed)
                 {
                     Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
                     Console.ReadKey();
@@ -92,10 +131,4 @@ class Program
             }
         }
     }
-}
-
-Console.Write("Hello world");
-        }
-    
-}
 }
