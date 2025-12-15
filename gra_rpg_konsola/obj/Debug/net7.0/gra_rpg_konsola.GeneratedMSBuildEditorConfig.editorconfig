@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = gra_rpg_konsola
-build_property.ProjectDir = /Users/jakubolejnik/projects/gra_rpg_konsola/gra_rpg_konsola/
+build_property.ProjectDir = /Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/

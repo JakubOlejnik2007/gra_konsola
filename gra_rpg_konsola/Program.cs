@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿class Program
 {
 
@@ -7,3 +8,6 @@
         }
     
 }
+=======
+﻿
+>>>>>>> Stashed changes
