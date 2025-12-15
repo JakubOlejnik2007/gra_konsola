@@ -1,6 +1,8 @@
-<<<<<<< Updated upstream
-﻿class Program
+class Program
 {
+
+
+
 
         static void Main(string[] args)
         {
@@ -8,6 +10,3 @@
         }
     
 }
-=======
-﻿
->>>>>>> Stashed changes

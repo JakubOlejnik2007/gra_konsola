@@ -5,6 +5,11 @@ VisualStudioVersion = 25.0.1706.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gra_rpg_konsola", "gra_rpg_konsola\gra_rpg_konsola.csproj", "{51289178-0FC0-40B5-BF03-897E869EEF5F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A7E6847-5849-4C18-B708-B685C706DE76}"
+	ProjectSection(SolutionItems) = preProject
+		Enemy.cs = Enemy.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
