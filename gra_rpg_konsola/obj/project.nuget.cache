@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "iDrZOXggLTv+ksn8lHZU+aKUtz8aClUyJQ7tIO0ChzcBAXu0tYf0QByT50yhOrRFrKIUH3V48YBKd4RDnFCyhQ==",
+  "dgSpecHash": "f7sR+7pecPTJJ2AilOuHqwBPIb+rK/K5eJI1hKmfIMJa9o1Y+BlYLwAUr6V6S3Mrzs4tDAWNjAwVmAU8IAsqGw==",
   "success": true,
-  "projectFilePath": "/Users/szymonsowinski/Projects/gra_konsola/gra_rpg_konsola/gra_rpg_konsola.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\projects\\gra_konsola\\gra_rpg_konsola\\gra_rpg_konsola.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.16\\microsoft.netcore.app.host.win-x64.7.0.16.nupkg.sha512"
+  ],
   "logs": []
 }
