@@ -24,9 +24,19 @@ namespace gra_rpg_konsola
             this.image = image;
         }
 
+        public Enemy(Enemy enemy)
+        {
+            this.name = enemy.name;
+            this.health = enemy.health;
+            this.maxHealth = enemy.maxHealth;
+            this.damage = enemy.damage;
+            this.image = enemy.image;
+        }
+
         public void TakeDamage(float damage)
         {
             health -= damage;
+            Console.WriteLine($"{name} otrzymuje {damage} obrażeń!");
         }
 
         public bool isAlive() { return health > 0; }

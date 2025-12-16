@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("gra_rpg_konsola")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9ef56bb83cc679b5ad43899d898492b23b1ace9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e2e55525f6785bc32f661de1e0730fb4a9f03e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("gra_rpg_konsola")]
 [assembly: System.Reflection.AssemblyTitleAttribute("gra_rpg_konsola")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

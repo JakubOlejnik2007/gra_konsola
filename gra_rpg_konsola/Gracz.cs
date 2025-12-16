@@ -5,16 +5,16 @@ namespace gra_rpg_konsola
 {
     public class Gracz
     {
-        private string name;
+        public string name { get; private set; }
 
-        private float health;
-        private float maxHealth;
+        public float health { get; private set; }
+        public float maxHealth { get; private set; }
 
-        private float stamina;
-        private float maxStamina;
+        public float stamina { get; private set; }
+        public float maxStamina { get; private set; }
 
-        private float damage;
-        private List<Item> collectedItems = new List<Item>();
+        public float damage { get; private set; }
+        public List<Item> collectedItems = new List<Item>();
 
         public Gracz(string name, float health, float stamina, float damage)
         {
@@ -38,10 +38,10 @@ namespace gra_rpg_konsola
             }
 
             stamina -= 10;
-            enemy.health -= damage;
+            //enemy.health -= damage;
 
-            if (enemy.health < 0)
-                enemy.health = 0;
+            //if (enemy.health < 0)
+              //  enemy.health = 0;
 
             Console.WriteLine($"{name} atakuje {enemy.name} i zadaje {damage} obrażeń!");
         }
@@ -125,6 +125,8 @@ namespace gra_rpg_konsola
             Console.WriteLine($"HP: {health}/{maxHealth}");
             Console.WriteLine($"Stamina: {stamina}/{maxStamina}");
             Console.WriteLine($"Obrażenia: {damage}");
+            Console.WriteLine($"Przedmioty:");
+            foreach (Item item in collectedItems) item.GetItemInfo();
             Console.WriteLine("==============");
         }
     }
